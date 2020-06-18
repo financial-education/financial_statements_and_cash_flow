@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-06-17 Wed 16:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cash Flow from Financial Statements</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Matt Brigida, Ph.D." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Cash Flow from Financial Statements</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org79376f9">1. The Balance Sheet</a>
+<ul>
+<li><a href="#orgb944bbd">1.1. Market vs Book Values</a></li>
+<li><a href="#org95a37a2">1.2. Liquidity</a></li>
+<li><a href="#org77d90df">1.3. Financial Leverage</a></li>
+</ul>
+</li>
+<li><a href="#org8b18dfa">2. The Income Statement</a></li>
+<li><a href="#org8a9dbfc">3. The Statement of Cash Flows</a></li>
+<li><a href="#org8da76f8">4. Cash Flow</a>
+<ul>
+<li><a href="#org4adc683">4.1. Operating Cash Flow</a>
+<ul>
+<li><a href="#org2f0efa7">4.1.1. A note on interest expense</a></li>
+</ul>
+</li>
+<li><a href="#org30937c8">4.2. Cash Flow from Assets</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+To value an asset we need the cash flows generated by that asset, and we use financial statements to calculate cash flow.  In this section we'll discuss (1) a general overview of financial statements so you'll know where to look for a given piece of information and (2) how to extract cash flows from financial statements.
+</p>
+
+<div id="outline-container-org79376f9" class="outline-2">
+<h2 id="org79376f9"><span class="section-number-2">1</span> The Balance Sheet</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The <i>balance sheet</i> is a summary of how a firm financed their assets at one point in time.  <a href="https://www.5minutefinance.org/concepts/the-balance-sheet-identity">This is often written as the balance sheet identity, which shows Assets are <i>defined</i> to be the sum of liabilities and stockholders' equity (see the link for the difference between an equation and an identity).</a> 
+</p>
+
+<p>
+On the left hand side we have the assets of the firm, recorded at the purchase cost of the asset.  On the right-hand side we have the value of the debt issued and the <i>book</i> value of the firm's common stock.  
+</p>
+
+<p>
+By looking at the change in certain accounts, we can identify corporate actions such as stock and bond issuance, or retained earnings.  For example, say the YoY (year over year) change in long-term debt on the balance sheet is $100 million.  This means the company issued (sold) $100 million in debt over the year.
+</p>
+</div>
+
+<div id="outline-container-orgb944bbd" class="outline-3">
+<h3 id="orgb944bbd"><span class="section-number-3">1.1</span> Market vs Book Values</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The asset values in the audited FASB (Financial Accounting Standard Board) balance sheet are <i>book values</i> which is the cost of the asset.  In finance, we are interested in market values rather than book values, so it is important to keep the distinction between <i>market</i> and <i>book</i> values in mind.  For example, since equity on the balance sheet is defined to be the book value of asset minus liabilities (which is a book value), it is generally is substantially different from the market value of equity.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org95a37a2" class="outline-3">
+<h3 id="org95a37a2"><span class="section-number-3">1.2</span> Liquidity</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Liquidity is:
+</p>
+
+<blockquote>
+<p>
+The ease with which you can sell an asset for cash, while not reducing its value by much.
+</p>
+</blockquote>
+
+<p>
+Assets on the balance sheet are listed in order of decreasing liquidity&#x2014;the most liquid assets are on the top.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-org77d90df" class="outline-3">
+<h3 id="org77d90df"><span class="section-number-3">1.3</span> Financial Leverage</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+<i>Financial Leverage</i> refers to the amount of debt in a firm's capital structure.  More debt magnifies returns, and hence 'leverage' refers to using debt to making returns larger as if by a sort of mechanical advantage.  For example:
+</p>
+
+<blockquote>
+<p>
+Say you have $100,000 and each house costs $100,000.  Also all houses are expected to increase by 1% per year. If you buy one house (100% equity), and houses increase by 1%, you have a 1% return on equity over the year.
+</p>
+
+<p>
+If instead, you buy 100 houses, putting down $1000 in equity on each house (1% equity), and house prices increase by 1%, then you have a 100% return on equity. Leverage has magnified your gain.
+</p>
+
+<p>
+Of course, if house prices had declined by 1% you would have lost $1000 in the 100% equity case, and $100,000 in the 1% equity case.
+</p>
+</blockquote>
+
+<p>
+The balance sheet affords the (book) value of leverage.  Because this is a book value number, it should be compared with other, similar, firms' leverage values.  
+</p>
+
+<p>
+In the U.K. <i>Leverage</i> is called as <i>Gearing</i>.  Both imply the 'mechanical advantage' available through debt.
+</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org8b18dfa" class="outline-2">
+<h2 id="org8b18dfa"><span class="section-number-2">2</span> The Income Statement</h2>
+</div>
+
+<div id="outline-container-org8a9dbfc" class="outline-2">
+<h2 id="org8a9dbfc"><span class="section-number-2">3</span> The Statement of Cash Flows</h2>
+</div>
+
+<div id="outline-container-org8da76f8" class="outline-2">
+<h2 id="org8da76f8"><span class="section-number-2">4</span> Cash Flow</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org4adc683" class="outline-3">
+<h3 id="org4adc683"><span class="section-number-3">4.1</span> Operating Cash Flow</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+\[OCF = EBIT + Depreciation - Taxes\]
+</p>
+</div>
+
+<div id="outline-container-org2f0efa7" class="outline-4">
+<h4 id="org2f0efa7"><span class="section-number-4">4.1.1</span> A note on interest expense</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+Interest is a cash expense, however we will not include it in any of our OCF calculations.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org30937c8" class="outline-3">
+<h3 id="org30937c8"><span class="section-number-3">4.2</span> Cash Flow from Assets</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Matt Brigida, Ph.D.</p>
+<p class="date">Created: 2020-06-17 Wed 16:41</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
