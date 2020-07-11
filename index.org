@@ -85,3 +85,36 @@ Interest is a cash expense, however we will not include it in any of our OCF cal
 
 ** Cash Flow from Assets
 
+The firm operates the assets to generate cash flow, and whatever cash is made is claimed by those that financed the assets (debt and stock owners).  
+
+$$Cash\ Flow\ from\ Assets \equiv Cash\ Flow\ to\ Debtholders + Cash\ Flow\ to\ Stockholders$$
+
+This is an identity because stockholders are /residual claimants/; they receive whatever is available after paying debtholders what they are owed.  Note cash flow to stockholders doesn't just mean dividends.  Cash reinvested in the firm, for example via capital expenditures, is also /to stockholders/.
+
+*** Components of Cash Flow from Assets
+
+$$Cash\ Flow\ from\ Assets = OCF - Net\ Capex - \Delta NWC$$
+
+
+*** Different Firms, Different Cash Flow Calculations
+
+What we have discussed here is /Cash Flow from Assets/ in the most general terms.  However particular firms, given their unique circumstances, may calculate cash flow differently, and also use terms such as /Free Cash Flow/.  So if you are working for a Movie Production company and hear the term /Free Cash Flow/ you should try and learn exactly how it is calculated in that industry.  It will likely be calculated in a different manner than at a Utility.
+
+
+* [[https://en.wikipedia.org/wiki/Flesch%25E2%2580%2593Kincaid_readability_tests][Reading Ease Score]]
+
+#+BEGIN_SRC elisp :results output :exports results
+(print (writegood-reading-ease))
+#+END_SRC
+
+#+RESULTS:
+: 
+: "Flesch-Kincaid reading ease score: 71.62 Fairly easy (7th grade)"
+
+#+BEGIN_SRC elisp :results output :exports results
+(print (writegood-grade-level))
+#+END_SRC
+
+#+RESULTS:
+: 
+: "Flesch-Kincaid grade level score: 7.77"
