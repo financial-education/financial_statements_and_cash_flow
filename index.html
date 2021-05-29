@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-30 Sun 16:30 -->
+<!-- 2021-05-28 Fri 22:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cash Flow from Financial Statements</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -180,57 +193,33 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2017 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -262,31 +251,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8eba23e">1. The Balance Sheet</a>
+<li><a href="#org79f93c0">1. The Balance Sheet</a>
 <ul>
-<li><a href="#org1e11589">1.1. Market vs Book Values</a></li>
-<li><a href="#org49f1359">1.2. Liquidity</a></li>
-<li><a href="#orga8142cb">1.3. Financial Leverage</a></li>
+<li><a href="#org889b5b3">1.1. Market vs Book Values</a></li>
+<li><a href="#org8a5fb2e">1.2. Liquidity</a></li>
+<li><a href="#org5381f95">1.3. Financial Leverage</a></li>
 </ul>
 </li>
-<li><a href="#orgc77adb7">2. The Income Statement</a></li>
-<li><a href="#org6f6d976">3. The Statement of Cash Flows</a></li>
-<li><a href="#orgdc92689">4. Cash Flow</a>
+<li><a href="#org58cda3d">2. The Income Statement</a></li>
+<li><a href="#org3b75b85">3. The Statement of Cash Flows</a></li>
+<li><a href="#orgcde00a0">4. Cash Flow</a>
 <ul>
-<li><a href="#orgdba72a3">4.1. Operating Cash Flow</a>
+<li><a href="#orgbcc103f">4.1. Operating Cash Flow</a>
 <ul>
-<li><a href="#org66f7bd5">4.1.1. A note on interest expense</a></li>
+<li><a href="#orgfe82057">4.1.1. A note on interest expense</a></li>
 </ul>
 </li>
-<li><a href="#org7111162">4.2. Cash Flow from Assets</a>
+<li><a href="#orgde6c2da">4.2. Cash Flow from Assets</a>
 <ul>
-<li><a href="#org71dc05b">4.2.1. Components of Cash Flow from Assets</a></li>
-<li><a href="#org632dd14">4.2.2. Different Firms, Different Cash Flow Calculations</a></li>
+<li><a href="#orgbfad1bc">4.2.1. Components of Cash Flow from Assets</a></li>
+<li><a href="#orgff9057f">4.2.2. Different Firms, Different Cash Flow Calculations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga892a59">5. Reading Ease Score</a></li>
+<li><a href="#org997ff44">5. Reading Ease Score</a></li>
 </ul>
 </div>
 </div>
@@ -294,8 +283,8 @@ for the JavaScript code in this tag.
 To value an asset we need the cash flows generated by that asset, and we use financial statements to calculate cash flow.  In this section we'll discuss (1) a general overview of financial statements so you'll know where to look for a given piece of information and (2) how to extract cash flows from financial statements.
 </p>
 
-<div id="outline-container-org8eba23e" class="outline-2">
-<h2 id="org8eba23e"><span class="section-number-2">1</span> The Balance Sheet</h2>
+<div id="outline-container-org79f93c0" class="outline-2">
+<h2 id="org79f93c0"><span class="section-number-2">1.</span> The Balance Sheet</h2>
 <div class="outline-text-2" id="text-1">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pVDxSbDKY40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -316,8 +305,8 @@ By looking at the change in certain accounts, we can identify corporate actions 
 </p>
 </div>
 
-<div id="outline-container-org1e11589" class="outline-3">
-<h3 id="org1e11589"><span class="section-number-3">1.1</span> Market vs Book Values</h3>
+<div id="outline-container-org889b5b3" class="outline-3">
+<h3 id="org889b5b3"><span class="section-number-3">1.1.</span> Market vs Book Values</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The asset values in the audited FASB (Financial Accounting Standard Board) balance sheet are <i>book values</i> which is the cost of the asset.  In finance, we are interested in market values rather than book values, so it is important to keep the distinction between <i>market</i> and <i>book</i> values in mind.  For example, since equity on the balance sheet is defined to be the book value of asset minus liabilities (which is a book value), it is generally is substantially different from the market value of equity.
@@ -325,8 +314,8 @@ The asset values in the audited FASB (Financial Accounting Standard Board) balan
 </div>
 </div>
 
-<div id="outline-container-org49f1359" class="outline-3">
-<h3 id="org49f1359"><span class="section-number-3">1.2</span> Liquidity</h3>
+<div id="outline-container-org8a5fb2e" class="outline-3">
+<h3 id="org8a5fb2e"><span class="section-number-3">1.2.</span> Liquidity</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Liquidity is:
@@ -344,8 +333,8 @@ Assets on the balance sheet are listed in order of decreasing liquidity&#x2014;t
 </div>
 </div>
 
-<div id="outline-container-orga8142cb" class="outline-3">
-<h3 id="orga8142cb"><span class="section-number-3">1.3</span> Financial Leverage</h3>
+<div id="outline-container-org5381f95" class="outline-3">
+<h3 id="org5381f95"><span class="section-number-3">1.3.</span> Financial Leverage</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <i>Financial Leverage</i> refers to the amount of debt in a firm's capital structure.  More debt magnifies returns, and hence 'leverage' refers to using debt to making returns larger as if by a sort of mechanical advantage.  For example:
@@ -380,8 +369,8 @@ In the U.K. <i>Leverage</i> is called as <i>Gearing</i>.  Both imply the 'mechan
 
 
 
-<div id="outline-container-orgc77adb7" class="outline-2">
-<h2 id="orgc77adb7"><span class="section-number-2">2</span> The Income Statement</h2>
+<div id="outline-container-org58cda3d" class="outline-2">
+<h2 id="org58cda3d"><span class="section-number-2">2.</span> The Income Statement</h2>
 <div class="outline-text-2" id="text-2">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QtqbnluZIbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -405,8 +394,8 @@ The income statement measures a firm’s performance over some period of time.
 </div>
 
 
-<div id="outline-container-org6f6d976" class="outline-2">
-<h2 id="org6f6d976"><span class="section-number-2">3</span> The Statement of Cash Flows</h2>
+<div id="outline-container-org3b75b85" class="outline-2">
+<h2 id="org3b75b85"><span class="section-number-2">3.</span> The Statement of Cash Flows</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The cash flow statement is a combination of balance sheet and income statement.
@@ -422,22 +411,22 @@ The cash flow statement is a combination of balance sheet and income statement.
 </div>
 </div>
 
-<div id="outline-container-orgdc92689" class="outline-2">
-<h2 id="orgdc92689"><span class="section-number-2">4</span> Cash Flow</h2>
+<div id="outline-container-orgcde00a0" class="outline-2">
+<h2 id="orgcde00a0"><span class="section-number-2">4.</span> Cash Flow</h2>
 <div class="outline-text-2" id="text-4">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2fspDJj_QQ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-<div id="outline-container-orgdba72a3" class="outline-3">
-<h3 id="orgdba72a3"><span class="section-number-3">4.1</span> Operating Cash Flow</h3>
+<div id="outline-container-orgbcc103f" class="outline-3">
+<h3 id="orgbcc103f"><span class="section-number-3">4.1.</span> Operating Cash Flow</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 \[OCF = EBIT + Depreciation - Taxes\]
 </p>
 </div>
 
-<div id="outline-container-org66f7bd5" class="outline-4">
-<h4 id="org66f7bd5"><span class="section-number-4">4.1.1</span> A note on interest expense</h4>
+<div id="outline-container-orgfe82057" class="outline-4">
+<h4 id="orgfe82057"><span class="section-number-4">4.1.1.</span> A note on interest expense</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 Interest is a cash expense, however we will not include it in any of our OCF calculations.
@@ -446,8 +435,8 @@ Interest is a cash expense, however we will not include it in any of our OCF cal
 </div>
 </div>
 
-<div id="outline-container-org7111162" class="outline-3">
-<h3 id="org7111162"><span class="section-number-3">4.2</span> Cash Flow from Assets</h3>
+<div id="outline-container-orgde6c2da" class="outline-3">
+<h3 id="orgde6c2da"><span class="section-number-3">4.2.</span> Cash Flow from Assets</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 The firm operates the assets to generate cash flow, and whatever cash is made is claimed by those that financed the assets (debt and stock owners).  
@@ -462,8 +451,8 @@ This is an identity because stockholders are <i>residual claimants</i>; they rec
 </p>
 </div>
 
-<div id="outline-container-org71dc05b" class="outline-4">
-<h4 id="org71dc05b"><span class="section-number-4">4.2.1</span> Components of Cash Flow from Assets</h4>
+<div id="outline-container-orgbfad1bc" class="outline-4">
+<h4 id="orgbfad1bc"><span class="section-number-4">4.2.1.</span> Components of Cash Flow from Assets</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 \[Cash\ Flow\ from\ Assets = OCF - Net\ Capex - \Delta NWC\]
@@ -472,8 +461,8 @@ This is an identity because stockholders are <i>residual claimants</i>; they rec
 </div>
 
 
-<div id="outline-container-org632dd14" class="outline-4">
-<h4 id="org632dd14"><span class="section-number-4">4.2.2</span> Different Firms, Different Cash Flow Calculations</h4>
+<div id="outline-container-orgff9057f" class="outline-4">
+<h4 id="orgff9057f"><span class="section-number-4">4.2.2.</span> Different Firms, Different Cash Flow Calculations</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 What we have discussed here is <i>Cash Flow from Assets</i> in the most general terms.  However particular firms, given their unique circumstances, may calculate cash flow differently, and also use terms such as <i>Free Cash Flow</i>.  So if you are working for a Movie Production company and hear the term <i>Free Cash Flow</i> you should try and learn exactly how it is calculated in that industry.  It will likely be calculated in a different manner than at a Utility.
@@ -484,27 +473,26 @@ What we have discussed here is <i>Cash Flow from Assets</i> in the most general 
 </div>
 
 
-<div id="outline-container-orga892a59" class="outline-2">
-<h2 id="orga892a59"><span class="section-number-2">5</span> <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests">Reading Ease Score</a></h2>
+<div id="outline-container-org997ff44" class="outline-2">
+<h2 id="org997ff44"><span class="section-number-2">5.</span> <a href="https://en.wikipedia.org/wiki/Flesch%25E2%2580%2593Kincaid_readability_tests">Reading Ease Score</a></h2>
 <div class="outline-text-2" id="text-5">
 <pre class="example">
 
-"Flesch-Kincaid reading ease score: 70.30 Fairly easy (7th grade)"
-
+"Flesch-Kincaid reading ease score: 70.38 Fairly easy (7th grade)"
 </pre>
+
 
 <pre class="example">
 
-"Flesch-Kincaid grade level score: 7.79"
-
+"Flesch-Kincaid grade level score: 7.78"
 </pre>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2020-08-30 Sun 16:30</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-05-28 Fri 22:06</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
